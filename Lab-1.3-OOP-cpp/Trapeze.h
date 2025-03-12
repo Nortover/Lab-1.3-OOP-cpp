@@ -12,22 +12,22 @@ private:
 
 public:
 
-    // Конструктори
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРё
     Trapeze();
     Trapeze(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4);
     Trapeze(const Trapeze& other);
 
-    // Делегування конструктора
+    // Р”РµР»РµРіСѓРІР°РЅРЅСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°
     Trapeze(double x1, double y1);
     
 
     ~Trapeze();
 
-    // Сетери
+    // РЎРµС‚РµСЂРё
     void setCoordinates(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4);
     void setCoordinates(const double coords[8]);
 
-    // Гетери
+    // Р“РµС‚РµСЂРё
     double getX1() const;
     double getY1() const;
     double getX2() const;
@@ -37,19 +37,24 @@ public:
     double getX4() const;
     double getY4() const;
 
-    // Методи обчислення
+// РњРµС‚РѕРґ РјР°СЃС€С‚Р°Р±СѓРІР°РЅРЅСЏ Р· Р°СЂРіСѓРјРµРЅС‚РѕРј Р·Р° СѓРјРѕРІС‡Р°РЅРЅСЏРј
+void scale(double factor = 2.0);
+Trapeze scale(double factor, Trapeze other);
+void scale(Trapeze& other, double factor = 2.0);
+
+    // ГЊГҐГІГ®Г¤ГЁ Г®ГЎГ·ГЁГ±Г«ГҐГ­Г­Гї
     double getPerimeter() const;
     double getArea() const;
 
-    // Перевантаження оператора множення
+    // РџРµСЂРµРІР°РЅС‚Р°Р¶РµРЅРЅСЏ РѕРїРµСЂР°С‚РѕСЂР° РјРЅРѕР¶РµРЅРЅСЏ
     Trapeze operator*(const Trapeze& other) const;
 
-    // Перевантаження оператора вирахування
+    // РџРµСЂРµРІР°РЅС‚Р°Р¶РµРЅРЅСЏ РѕРїРµСЂР°С‚РѕСЂР° РІРёСЂР°С…СѓРІР°РЅРЅСЏ
     Trapeze operator-(double subtract) const;
 
-    // Перевантаження оператора виведення
+    // РџРµСЂРµРІР°РЅС‚Р°Р¶РµРЅРЅСЏ РѕРїРµСЂР°С‚РѕСЂР° РІРёРІРµРґРµРЅРЅСЏ
     friend std::ostream& operator<<(std::ostream& os, const Trapeze& trapeze);
 
-    // Оператор +=
+    // РџРµСЂРµРІР°РЅС‚Р°Р¶РµРЅРЅСЏ РѕРїРµСЂР°С‚РѕСЂР° РїСЂРёСЃРІРѕС”РЅРЅСЏ
     Trapeze& operator+=(const Trapeze& other);
 };
