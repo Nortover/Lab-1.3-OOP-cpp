@@ -20,6 +20,18 @@ Trapeze::Trapeze(const Trapeze& other)
 {
 }
 
+// Конструктор з множинними аргументами
+Trapeze::Trapeze(std::initializer_list<double> coords) {
+    if (coords.size() != 8) {
+        throw std::invalid_argument("Initializer list must contain exactly 8 elements.");
+    }
+    auto it = coords.begin();
+    x1 = *it++; y1 = *it++;
+    x2 = *it++; y2 = *it++;
+    x3 = *it++; y3 = *it++;
+    x4 = *it++; y4 = *it++;
+}
+
 // Делегування конструктора
 Trapeze::Trapeze(double x1, double y1) : Trapeze(x1, y1, 0, 0, 0, 0, 0, 0)
 {
